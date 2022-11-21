@@ -10,9 +10,8 @@
 coverage](https://codecov.io/gh/Gladys-Wang/bis620.2022/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Gladys-Wang/bis620.2022?branch=main)
 [![Test
 coverage](https://github.com/Gladys-Wang/bis620.2022/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/Gladys-Wang/bis620.2022/actions/workflows/test-coverage.yaml)
+[![Lint](https://github.com/Gladys-Wang/bis620.2022/actions/workflows/lint.yaml/badge.svg)](https://github.com/Gladys-Wang/bis620.2022/actions/workflows/lint.yaml)
 <!-- badges: end -->
-
-The goal of bis620.2022 is to …
 
 ## Installation
 
@@ -24,38 +23,39 @@ You can install the development version of bis620.2022 from
 devtools::install_github("Gladys-Wang/bis620.2022")
 ```
 
-## Example
+# Description
 
-This is a basic example which shows you how to solve a common problem:
+The goal of bis620.2022 is to incorporate several packages so that you
+could invoke them in R and also from github.
+
+The accel_plot is a function to generate plots of time series data with
+time or frequency on the x-axis. You could implement it by calling:
 
 ``` r
 library(bis620.2022)
-## basic example code
+data(ukb_accel)
+accel_plot(ukb_accel[1:1000,])
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+<img src="man/figures/README-example-1.png" width="100%" /> The
+spectral_signature is a function that generates a dataframe by adding a
+frequency column to time series data. You could implement it by calling:
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+data(ukb_accel)
+spectral_signature(ukb_accel[1:1000,])
+#> # A tibble: 500 × 4
+#>        X     Y      Z   freq
+#>    <dbl> <dbl>  <dbl>  <dbl>
+#>  1 127.  214.  962.   0.0993
+#>  2 144.  289.   55.8  0.0995
+#>  3 124.   63.9  33.4  0.0997
+#>  4  42.5  55.3   9.06 0.0999
+#>  5  18.4 106.   36.6  0.100 
+#>  6  45.7  24.2  48.7  0.100 
+#>  7  21.6  60.6  34.5  0.100 
+#>  8  26.5  71.9  28.5  0.101 
+#>  9  44.6  16.0  19.5  0.101 
+#> 10  46.9  25.5  23.0  0.101 
+#> # … with 490 more rows
 ```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
