@@ -1,1 +1,2 @@
-utils::globalVariables(c("X", "Y", "Z", "value"))
+utils::globalVariables(c("X", "Y", "Z", "affected_rate", "age", "nct_id",
+                         "gender", "health", "healthy_volunteers", "intervention_type"))

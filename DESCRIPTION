@@ -11,16 +11,21 @@ RoxygenNote: 7.2.1
 Imports: 
   dplyr,
   ggplot2,
+  ggpubr,
   purrr,
-  tidyr
+  tidyr,
+  dbplyr,
+  duckdb,
+  DBI
 Roxygen: list(markdown = TRUE)
 Depends: 
   R (>= 4.2)
-Suggests:
+Suggests: 
     covr,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0),
-    vdiffr
+    vdiffr,
+    devtools
 Config/testthat/edition: 3
 VignetteBuilder: knitr
