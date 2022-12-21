@@ -14,7 +14,8 @@
 #' `intervention_type`
 #' @param type the type of regression model (containing two types: `without` model without interactions & `with` model with interactions)
 #' @return regression model summary of the relative significance of factors to adverse event.
-#' @import DBI duckdb dplyr dbplyr
+#' @import dplyr
+#' @importFrom stats glm sd aggregate
 #' @export
 
 regression_model <- function(x, y, z, type){

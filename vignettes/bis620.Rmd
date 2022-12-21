@@ -17,7 +17,6 @@ library(DBI)
 library(duckdb)
 library(dplyr)
 library(gridExtra)
-library(dbplyr)
 ```
 
 ```{r setup}
